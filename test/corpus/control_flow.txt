@@ -1,0 +1,179 @@
+==================
+Example: Control Flow
+==================
+
+i32 sum_to(i32 n) {
+    i32 mut acc = 0;
+    for i in range(0, n) {
+        acc = acc + i;
+    }
+    return acc;
+}
+
+i32 max(i32 a, i32 b) {
+    if a > b {
+        return a;
+    }
+    return b;
+}
+
+---
+
+(source_file
+  (item_with_docs
+    (function_definition
+      (primitive_type)
+      (identifier)
+      (parameter_list
+        (parameter_with_docs
+          (primitive_type)
+          (identifier)))
+      (block
+        (let_statement
+          (typed_let_statement
+            (primitive_type)
+            (identifier)
+            (assignment_expression
+              (logical_or_expression
+                (logical_and_expression
+                  (equality_expression
+                    (comparison_expression
+                      (additive_expression
+                        (multiplication_expression
+                          (unary_expression
+                            (postfix_expression
+                              (primary_expression
+                                (literal
+                                  (integer_literal))))))))))))))
+        (for_statement
+          (identifier)
+          (assignment_expression
+            (logical_or_expression
+              (logical_and_expression
+                (equality_expression
+                  (comparison_expression
+                    (additive_expression
+                      (multiplication_expression
+                        (unary_expression
+                          (postfix_expression
+                            (primary_expression
+                              (range_expression
+                                (assignment_expression
+                                  (logical_or_expression
+                                    (logical_and_expression
+                                      (equality_expression
+                                        (comparison_expression
+                                          (additive_expression
+                                            (multiplication_expression
+                                              (unary_expression
+                                                (postfix_expression
+                                                  (primary_expression
+                                                    (literal
+                                                      (integer_literal))))))))))))
+                                (assignment_expression
+                                  (logical_or_expression
+                                    (logical_and_expression
+                                      (equality_expression
+                                        (comparison_expression
+                                          (additive_expression
+                                            (multiplication_expression
+                                              (unary_expression
+                                                (postfix_expression
+                                                  (primary_expression
+                                                    (identifier))))))))))))))))))))))
+          (block
+            (expression_statement
+              (assignment_expression
+                (logical_or_expression
+                  (logical_and_expression
+                    (equality_expression
+                      (comparison_expression
+                        (additive_expression
+                          (multiplication_expression
+                            (unary_expression
+                              (postfix_expression
+                                (primary_expression
+                                  (identifier))))))))))
+                (assignment_expression
+                  (logical_or_expression
+                    (logical_and_expression
+                      (equality_expression
+                        (comparison_expression
+                          (additive_expression
+                            (multiplication_expression
+                              (unary_expression
+                                (postfix_expression
+                                  (primary_expression
+                                    (identifier)))))
+                            (multiplication_expression
+                              (unary_expression
+                                (postfix_expression
+                                  (primary_expression
+                                    (identifier)))))))))))))))
+        (return_statement
+          (assignment_expression
+            (logical_or_expression
+              (logical_and_expression
+                (equality_expression
+                  (comparison_expression
+                    (additive_expression
+                      (multiplication_expression
+                        (unary_expression
+                          (postfix_expression
+                            (primary_expression
+                              (identifier)))))))))))))))
+  (item_with_docs
+    (function_definition
+      (primitive_type)
+      (identifier)
+      (parameter_list
+        (parameter_with_docs
+          (primitive_type)
+          (identifier))
+        (parameter_with_docs
+          (primitive_type)
+          (identifier)))
+      (block
+        (if_statement
+          (assignment_expression
+            (logical_or_expression
+              (logical_and_expression
+                (equality_expression
+                  (comparison_expression
+                    (additive_expression
+                      (multiplication_expression
+                        (unary_expression
+                          (postfix_expression
+                            (primary_expression
+                              (identifier))))))
+                    (additive_expression
+                      (multiplication_expression
+                        (unary_expression
+                          (postfix_expression
+                            (primary_expression
+                              (identifier)))))))))))
+          (block
+            (return_statement
+              (assignment_expression
+                (logical_or_expression
+                  (logical_and_expression
+                    (equality_expression
+                      (comparison_expression
+                        (additive_expression
+                          (multiplication_expression
+                            (unary_expression
+                              (postfix_expression
+                                (primary_expression
+                                  (identifier))))))))))))))
+        (return_statement
+          (assignment_expression
+            (logical_or_expression
+              (logical_and_expression
+                (equality_expression
+                  (comparison_expression
+                    (additive_expression
+                      (multiplication_expression
+                        (unary_expression
+                          (postfix_expression
+                            (primary_expression
+                              (identifier))))))))))))))))

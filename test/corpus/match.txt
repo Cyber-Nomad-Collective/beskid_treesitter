@@ -1,0 +1,99 @@
+==================
+Example: Match
+==================
+
+enum Option<T> {
+    Some(T value),
+    None,
+}
+
+string describe(Option<string> opt) {
+    return match opt {
+        Option::Some(value) => value,
+        Option::None => "none",
+    };
+}
+
+---
+
+(source_file
+  (item_with_docs
+    (enum_definition
+      (identifier)
+      (generic_parameters
+        (identifier))
+      (enum_body
+        (enum_variant_list
+          (enum_variant_with_docs
+            (enum_variant
+              (identifier)
+              (field_list
+                (field_with_docs
+                  (value_field
+                    (type_path
+                      (identifier))
+                    (identifier))))))
+          (enum_variant_with_docs
+            (enum_variant
+              (identifier)))))))
+  (item_with_docs
+    (function_definition
+      (primitive_type)
+      (identifier)
+      (parameter_list
+        (parameter_with_docs
+          (type_path
+            (identifier)
+            (generic_arguments
+              (primitive_type)))
+          (identifier)))
+      (block
+        (return_statement
+          (match_expression
+            (assignment_expression
+              (logical_or_expression
+                (logical_and_expression
+                  (equality_expression
+                    (comparison_expression
+                      (additive_expression
+                        (multiplication_expression
+                          (unary_expression
+                            (postfix_expression
+                              (primary_expression
+                                (identifier)))))))))))
+            (match_arm
+              (enum_pattern
+                (enum_path
+                  (identifier)
+                  (identifier))
+                (pattern_list
+                  (identifier)))
+              (assignment_expression
+                (logical_or_expression
+                  (logical_and_expression
+                    (equality_expression
+                      (comparison_expression
+                        (additive_expression
+                          (multiplication_expression
+                            (unary_expression
+                              (postfix_expression
+                                (primary_expression
+                                  (identifier))))))))))))
+            (match_arm
+              (enum_pattern
+                (enum_path
+                  (identifier)
+                  (identifier)))
+              (assignment_expression
+                (logical_or_expression
+                  (logical_and_expression
+                    (equality_expression
+                      (comparison_expression
+                        (additive_expression
+                          (multiplication_expression
+                            (unary_expression
+                              (postfix_expression
+                                (primary_expression
+                                  (literal
+                                    (string_literal
+                                      (string_content))))))))))))))))))))

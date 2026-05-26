@@ -1,0 +1,35 @@
+{
+  "grammars": [
+    {
+      "name": "beskid",
+      "camelcase": "Beskid",
+      "scope": "source.beskid",
+      "path": ".",
+      "file-types": ["bd"],
+      "highlights": "queries/highlights.scm",
+      "tags": "queries/tags.scm",
+      "injection-regex": "beskid"
+    }
+  ],
+  "metadata": {
+    "version": "0.1.0",
+    "license": "MIT",
+    "description": "Tree-sitter grammar for the Beskid programming language",
+    "authors": [
+      {
+        "name": "Cyber Nomad Collective"
+      }
+    ],
+    "links": {
+      "repository": "https://github.com/Cyber-Nomad-Collective/beskid_treesitter"
+    }
+  },
+  "bindings": {
+    "c": true,
+    "node": true,
+    "rust": false,
+    "go": false,
+    "python": false,
+    "swift": false
+  }
+}

@@ -1,0 +1,24 @@
+# Node
+node_modules/
+build/
+prebuilds/
+.npm-cache/
+
+# Generated parser build artifacts stay tracked under src/ after `tree-sitter generate`
+generated/
+
+# Rust
+target/
+
+# C / generated parser artifacts
+*.wasm
+*.obj
+*.o
+*.a
+*.so
+*.so.*
+*.dylib
+*.dll
+
+# Editor
+.vscode/

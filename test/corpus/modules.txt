@@ -1,0 +1,75 @@
+==================
+Example: Modules
+==================
+
+pub mod net.http;
+use net.http.Client;
+
+type ClientConfig {
+    string endpoint,
+}
+
+Client make_client(ClientConfig config) {
+    return Client { config: config };
+}
+
+---
+
+(source_file
+  (item_with_docs
+    (module_declaration
+      (visibility)
+      (identifier)
+      (identifier)))
+  (item_with_docs
+    (use_declaration
+      (identifier)
+      (identifier)
+      (identifier)))
+  (item_with_docs
+    (type_definition
+      (identifier)
+      (field_body
+        (field_list
+          (field_with_docs
+            (value_field
+              (primitive_type)
+              (identifier)))))))
+  (item_with_docs
+    (function_definition
+      (type_path
+        (identifier))
+      (identifier)
+      (parameter_list
+        (parameter_with_docs
+          (type_path
+            (identifier))
+          (identifier)))
+      (block
+        (return_statement
+          (assignment_expression
+            (logical_or_expression
+              (logical_and_expression
+                (equality_expression
+                  (comparison_expression
+                    (additive_expression
+                      (multiplication_expression
+                        (unary_expression
+                          (postfix_expression
+                            (primary_expression
+                              (struct_literal_expression
+                                (identifier)
+                                (field_value_list
+                                  (field_value
+                                    (identifier)
+                                    (assignment_expression
+                                      (logical_or_expression
+                                        (logical_and_expression
+                                          (equality_expression
+                                            (comparison_expression
+                                              (additive_expression
+                                                (multiplication_expression
+                                                  (unary_expression
+                                                    (postfix_expression
+                                                      (primary_expression
+                                                        (identifier)))))))))))))))))))))))))))))

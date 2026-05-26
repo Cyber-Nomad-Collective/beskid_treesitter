@@ -1,0 +1,60 @@
+{
+  "name": "@beskid/tree-sitter",
+  "version": "0.1.0",
+  "description": "Tree-sitter grammar for the Beskid programming language",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Cyber-Nomad-Collective/beskid_treesitter.git"
+  },
+  "license": "MIT",
+  "type": "module",
+  "author": "Cyber Nomad Collective",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com",
+    "access": "public"
+  },
+  "main": "bindings/node",
+  "types": "bindings/node",
+  "keywords": [
+    "beskid",
+    "incremental",
+    "parsing",
+    "tree-sitter"
+  ],
+  "files": [
+    "grammar.js",
+    "tree-sitter.json",
+    "binding.gyp",
+    "prebuilds/**",
+    "bindings/node/*",
+    "queries/*",
+    "src/**",
+    "*.wasm"
+  ],
+  "dependencies": {
+    "node-addon-api": "^8.3.1",
+    "node-gyp-build": "^4.8.4"
+  },
+  "devDependencies": {
+    "tree-sitter-cli": "^0.25.10"
+  },
+  "peerDependencies": {
+    "tree-sitter": "^0.25.0"
+  },
+  "peerDependenciesMeta": {
+    "tree-sitter": {
+      "optional": true
+    }
+  },
+  "scripts": {
+    "install": "node-gyp-build",
+    "generate": "node scripts/generate-from-pest.mjs",
+    "corpus": "node scripts/generate-corpus.mjs",
+    "sync": "./scripts/sync-from-pest.sh",
+    "test": "tree-sitter test",
+    "parse": "tree-sitter parse",
+    "prepublishOnly": "npm run prepublishOnly:verify",
+    "prepublishOnly:verify": "tree-sitter generate && tree-sitter test",
+    "publish:github": "npm publish"
+  }
+}

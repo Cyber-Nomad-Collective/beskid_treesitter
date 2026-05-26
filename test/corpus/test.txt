@@ -1,0 +1,103 @@
+==================
+Example: Test
+==================
+
+i32 main() {
+    i32 x = 1;
+    i32 mut y = 2;
+    
+    if x < y {
+        return x + y;
+    }
+    return 0;
+}
+
+---
+
+(source_file
+  (item_with_docs
+    (function_definition
+      (primitive_type)
+      (identifier)
+      (block
+        (let_statement
+          (typed_let_statement
+            (primitive_type)
+            (identifier)
+            (assignment_expression
+              (logical_or_expression
+                (logical_and_expression
+                  (equality_expression
+                    (comparison_expression
+                      (additive_expression
+                        (multiplication_expression
+                          (unary_expression
+                            (postfix_expression
+                              (primary_expression
+                                (literal
+                                  (integer_literal))))))))))))))
+        (let_statement
+          (typed_let_statement
+            (primitive_type)
+            (identifier)
+            (assignment_expression
+              (logical_or_expression
+                (logical_and_expression
+                  (equality_expression
+                    (comparison_expression
+                      (additive_expression
+                        (multiplication_expression
+                          (unary_expression
+                            (postfix_expression
+                              (primary_expression
+                                (literal
+                                  (integer_literal))))))))))))))
+        (if_statement
+          (assignment_expression
+            (logical_or_expression
+              (logical_and_expression
+                (equality_expression
+                  (comparison_expression
+                    (additive_expression
+                      (multiplication_expression
+                        (unary_expression
+                          (postfix_expression
+                            (primary_expression
+                              (identifier))))))
+                    (additive_expression
+                      (multiplication_expression
+                        (unary_expression
+                          (postfix_expression
+                            (primary_expression
+                              (identifier)))))))))))
+          (block
+            (return_statement
+              (assignment_expression
+                (logical_or_expression
+                  (logical_and_expression
+                    (equality_expression
+                      (comparison_expression
+                        (additive_expression
+                          (multiplication_expression
+                            (unary_expression
+                              (postfix_expression
+                                (primary_expression
+                                  (identifier)))))
+                          (multiplication_expression
+                            (unary_expression
+                              (postfix_expression
+                                (primary_expression
+                                  (identifier))))))))))))))
+        (return_statement
+          (assignment_expression
+            (logical_or_expression
+              (logical_and_expression
+                (equality_expression
+                  (comparison_expression
+                    (additive_expression
+                      (multiplication_expression
+                        (unary_expression
+                          (postfix_expression
+                            (primary_expression
+                              (literal
+                                (integer_literal)))))))))))))))))
