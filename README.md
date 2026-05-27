@@ -18,7 +18,7 @@ This repo uses a **hybrid pipeline**:
 
 ## npm package
 
-Published as [`@beskid/tree-sitter`](https://github.com/orgs/Cyber-Nomad-Collective/packages) on GitHub Packages (see root `.npmrc` scope `@beskid`).
+Published as [`@cyber-nomad-collective/beskid-tree-sitter`](https://github.com/orgs/Cyber-Nomad-Collective/packages) on GitHub Packages. Keep `@beskid/tree-sitter` imports via an npm alias (see [`.npmrc.example`](.npmrc.example)).
 
 ```bash
 # Local publish (needs NODE_AUTH_TOKEN with packages:write)
@@ -26,12 +26,23 @@ npm run prepublishOnly:verify
 npm run publish:github
 ```
 
-CI publishes on GitHub **Release published** (`.github/workflows/publish.yml`) or via **workflow_dispatch**.
+CI publishes on GitHub **Release published** or via **workflow_dispatch** (`.github/workflows/publish.yml`).
 
-Install in another repo (`.npmrc` must map `@beskid` to `https://npm.pkg.github.com`):
+Install in another repo:
+
+```json
+{
+  "dependencies": {
+    "@beskid/tree-sitter": "npm:@cyber-nomad-collective/beskid-tree-sitter@^0.1.3"
+  }
+}
+```
+
+`.npmrc` must map `@cyber-nomad-collective` and `@beskid` to `https://npm.pkg.github.com` with a token that has **`read:packages`**:
 
 ```bash
-npm install @beskid/tree-sitter
+export NODE_AUTH_TOKEN=<github-pat>
+bun install
 ```
 
 Peer dependency: `tree-sitter` ^0.25.

@@ -1,6 +1,6 @@
 {
-  "name": "@beskid/tree-sitter",
-  "version": "0.1.0",
+  "name": "@cyber-nomad-collective/beskid-tree-sitter",
+  "version": "0.1.3",
   "description": "Tree-sitter grammar for the Beskid programming language",
   "repository": {
     "type": "git",
