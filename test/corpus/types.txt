@@ -21,7 +21,7 @@ User make_user(i32 id, string name) {
     return User { id: id, name: name };
 }
 
-unit main(){
+unit Main(){
     User user = make_user(1, "John");
     std.io.println("User:");
     std.io.println(user.name);

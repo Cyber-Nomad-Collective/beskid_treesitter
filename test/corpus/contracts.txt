@@ -2,7 +2,7 @@
 Example: Contracts
 ==================
 
-unit main() {
+unit Main() {
     Console.Out.WriteLine("Storage contract example");
     return;
 }
