@@ -22,3 +22,14 @@ target/
 
 # Editor
 .vscode/
+
+# Lockfiles
+bun.lock
+
+# Build artifacts
+**/*.trace
+**/*.zip
+**/*.tar.gz
+**/*.tgz
+package-lock.json
+**/*.bun
