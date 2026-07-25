@@ -362,7 +362,7 @@ export default grammar({
 				field("name", $.identifier),
 			),
 
-		inject_qualifier: ($) => seq(choice("global", "parent"), "::"),
+		inject_qualifier: (_$) => seq(choice("global", "parent"), "::"),
 
 		enum_definition: ($) =>
 			seq(
