@@ -1,0 +1,142 @@
+============================================
+Generic contracts and implementation bindings
+============================================
+
+contract Iterator<T> {
+    type Item = T;
+    T Current();
+}
+
+contract Iterable<T> {
+    Iterator<T>;
+}
+
+type Numbers {}
+
+impl Numbers : Iterable<i32>, Iterator<i32> {
+    i32 Current() {
+        return 0;
+    }
+}
+
+This identity(This value) {
+    return value;
+}
+
+Iterator::Item current_item(Iterator::Item value) {
+    return value;
+}
+
+---
+
+(source_file
+  (item_with_docs
+    (contract_definition
+      (identifier)
+      (generic_parameters
+        (identifier))
+      (contract_body
+        (contract_item_with_docs
+          (contract_associated_type
+            (identifier)
+            (type_path
+              (identifier))))
+        (contract_item_with_docs
+          (contract_method_signature
+            (type_path
+              (identifier))
+            (identifier))))))
+  (item_with_docs
+    (contract_definition
+      (identifier)
+      (generic_parameters
+        (identifier))
+      (contract_body
+        (contract_item_with_docs
+          (contract_embedding
+            (identifier)
+            (generic_arguments
+              (type_path
+                (identifier))))))))
+  (item_with_docs
+    (type_definition
+      (identifier)
+      (field_body)))
+  (item_with_docs
+    (impl_block
+      (receiver_type
+        (type_path
+          (identifier)))
+      (impl_conformance_list
+        (path_list
+          (identifier)
+          (generic_arguments
+            (primitive_type))
+          (identifier)
+          (generic_arguments
+            (primitive_type))))
+      (impl_body
+        (impl_method_with_docs
+          (impl_method
+            (primitive_type)
+            (identifier)
+            (block
+              (return_statement
+                (assignment_expression
+                  (logical_or_expression
+                    (logical_and_expression
+                      (equality_expression
+                        (comparison_expression
+                          (additive_expression
+                            (multiplication_expression
+                              (unary_expression
+                                (postfix_expression
+                                  (primary_expression
+                                    (literal
+                                      (integer_literal)))))))))))))))))))
+  (item_with_docs
+    (function_definition
+      (this_type)
+      (identifier)
+      (parameter_list
+        (parameter_with_docs
+          (this_type)
+          (identifier)))
+      (block
+        (return_statement
+          (assignment_expression
+            (logical_or_expression
+              (logical_and_expression
+                (equality_expression
+                  (comparison_expression
+                    (additive_expression
+                      (multiplication_expression
+                        (unary_expression
+                          (postfix_expression
+                            (primary_expression
+                              (identifier)))))))))))))))
+  (item_with_docs
+    (function_definition
+      (associated_type_reference
+        (identifier)
+        (identifier))
+      (identifier)
+      (parameter_list
+        (parameter_with_docs
+          (associated_type_reference
+            (identifier)
+            (identifier))
+          (identifier)))
+      (block
+        (return_statement
+          (assignment_expression
+            (logical_or_expression
+              (logical_and_expression
+                (equality_expression
+                  (comparison_expression
+                    (additive_expression
+                      (multiplication_expression
+                        (unary_expression
+                          (postfix_expression
+                            (primary_expression
+                              (identifier))))))))))))))))

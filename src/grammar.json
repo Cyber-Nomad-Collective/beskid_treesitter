@@ -222,7 +222,44 @@
         },
         {
           "type": "SYMBOL",
+          "name": "this_type"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "associated_type_reference"
+        },
+        {
+          "type": "SYMBOL",
           "name": "_type_name"
+        }
+      ]
+    },
+    "this_type": {
+      "type": "STRING",
+      "value": "This"
+    },
+    "associated_type_reference": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "FIELD",
+          "name": "contract",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_type_path"
+          }
+        },
+        {
+          "type": "STRING",
+          "value": "::"
+        },
+        {
+          "type": "FIELD",
+          "name": "name",
+          "content": {
+            "type": "SYMBOL",
+            "name": "identifier"
+          }
         }
       ]
     },
@@ -319,6 +356,14 @@
         },
         {
           "type": "STRING",
+          "value": "pointer"
+        },
+        {
+          "type": "STRING",
+          "value": "word"
+        },
+        {
+          "type": "STRING",
           "value": "f64"
         },
         {
@@ -332,6 +377,10 @@
         {
           "type": "STRING",
           "value": "unit"
+        },
+        {
+          "type": "STRING",
+          "value": "never"
         }
       ]
     },
@@ -2455,12 +2504,41 @@
           }
         },
         {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "FIELD",
+              "name": "conformances",
+              "content": {
+                "type": "SYMBOL",
+                "name": "impl_conformance_list"
+              }
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
           "type": "FIELD",
           "name": "body",
           "content": {
             "type": "SYMBOL",
             "name": "impl_body"
           }
+        }
+      ]
+    },
+    "impl_conformance_list": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": ":"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "path_list"
         }
       ]
     },
@@ -2801,6 +2879,18 @@
           }
         },
         {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "generic_parameters"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
           "type": "FIELD",
           "name": "body",
           "content": {
@@ -2861,6 +2951,10 @@
         {
           "type": "SYMBOL",
           "name": "contract_embedding"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "contract_associated_type"
         }
       ]
     },
@@ -2924,6 +3018,18 @@
           "type": "CHOICE",
           "members": [
             {
+              "type": "SYMBOL",
+              "name": "generic_arguments"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
               "type": "STRING",
               "value": ";"
             },
@@ -2931,6 +3037,52 @@
               "type": "BLANK"
             }
           ]
+        }
+      ]
+    },
+    "contract_associated_type": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "type"
+        },
+        {
+          "type": "FIELD",
+          "name": "name",
+          "content": {
+            "type": "SYMBOL",
+            "name": "identifier"
+          }
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": "="
+                },
+                {
+                  "type": "FIELD",
+                  "name": "value",
+                  "content": {
+                    "type": "SYMBOL",
+                    "name": "_type"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "STRING",
+          "value": ";"
         }
       ]
     },
@@ -4663,31 +4815,12 @@
   ],
   "conflicts": [
     [
-      "_type",
-      "_expression"
-    ],
-    [
-      "_expression",
-      "_pattern"
-    ],
-    [
-      "_type_path_segment"
-    ],
-    [
       "arrow_function_type",
       "_lambda_parameters"
     ],
     [
       "type_reference",
       "parameter_modifier"
-    ],
-    [
-      "contract_method_signature",
-      "contract_embedding"
-    ],
-    [
-      "registry_block",
-      "registry_entry"
     ],
     [
       "_type_path_segment",
@@ -4699,11 +4832,7 @@
     ],
     [
       "_type_path_segment",
-      "_lambda_parameters"
-    ],
-    [
-      "_type_path_segment",
-      "_parameter"
+      "enum_path"
     ],
     [
       "_enum_constructor_expression"

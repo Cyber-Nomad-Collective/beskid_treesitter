@@ -120,7 +120,7 @@ ${DECLARATION_RULES}
   },
 });
 
-${manual.helpers}
+${manual.helpers.trimEnd()}
 `;
 }
 

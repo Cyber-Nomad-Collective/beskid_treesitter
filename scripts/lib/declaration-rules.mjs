@@ -197,8 +197,11 @@ export const DECLARATION_RULES = `
     impl_block: $ => seq(
       'impl',
       field('receiver', $.receiver_type),
+      optional(field('conformances', $.impl_conformance_list)),
       field('body', $.impl_body),
     ),
+
+    impl_conformance_list: $ => seq(':', $.path_list),
 
     extend_type_definition: $ => seq(
       'extend',
@@ -253,6 +256,7 @@ export const DECLARATION_RULES = `
       optional($.visibility),
       'contract',
       field('name', $.identifier),
+      optional($.generic_parameters),
       field('body', $.contract_body),
     ),
 
@@ -266,6 +270,7 @@ export const DECLARATION_RULES = `
     _contract_item: $ => choice(
       $.contract_method_signature,
       $.contract_embedding,
+      $.contract_associated_type,
     ),
 
     contract_method_signature: $ => seq(
@@ -279,7 +284,15 @@ export const DECLARATION_RULES = `
 
     contract_embedding: $ => seq(
       field('name', $.identifier),
+      optional($.generic_arguments),
       optional(';'),
+    ),
+
+    contract_associated_type: $ => seq(
+      'type',
+      field('name', $.identifier),
+      optional(seq('=', field('value', $._type))),
+      ';',
     ),
 
     host_definition: $ => seq(

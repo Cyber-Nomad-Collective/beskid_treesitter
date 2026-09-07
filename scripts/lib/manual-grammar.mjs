@@ -67,7 +67,17 @@ const PREC = {
       $.function_type,
       $.type_reference,
       $.array_type,
+      $.this_type,
+      $.associated_type_reference,
       $._type_name,
+    ),
+
+    this_type: _ => 'This',
+
+    associated_type_reference: $ => seq(
+      field('contract', $._type_path),
+      '::',
+      field('name', $.identifier),
     ),
 
     _type_name: $ => choice($.primitive_type, alias($._type_path, $.type_path)),

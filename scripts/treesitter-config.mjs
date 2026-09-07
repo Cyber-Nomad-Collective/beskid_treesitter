@@ -142,17 +142,11 @@ export const MANUAL_RULES = new Set([
 
 /** GLR conflict sets (tree-sitter `conflicts` field). */
 export const CONFLICTS = [
-  ['_type', '_expression'],
-  ['_expression', '_pattern'],
-  ['_type_path_segment'],
   ['arrow_function_type', '_lambda_parameters'],
   ['type_reference', 'parameter_modifier'],
-  ['contract_method_signature', 'contract_embedding'],
-  ['registry_block', 'registry_entry'],
   ['_type_path_segment', 'contract_embedding'],
   ['_type_path_segment', 'primary_expression'],
-  ['_type_path_segment', '_lambda_parameters'],
-  ['_type_path_segment', '_parameter'],
+  ['_type_path_segment', 'enum_path'],
   ['_enum_constructor_expression'],
   ['_type_path_segment', 'lambda_parameter'],
   ['_type_path_segment', 'lambda_parameter', 'primary_expression'],
