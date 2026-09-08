@@ -6,7 +6,7 @@
 		"type": "git",
 		"url": "https://github.com/Cyber-Nomad-Collective/beskid_treesitter.git"
 	},
-	"license": "MIT",
+	"license": "Apache-2.0",
 	"type": "module",
 	"author": "Cyber Nomad Collective",
 	"publishConfig": {
@@ -22,6 +22,8 @@
 		"tree-sitter"
 	],
 	"files": [
+		"LICENSE",
+		"NOTICE",
 		"grammar.js",
 		"tree-sitter.json",
 		"binding.gyp",

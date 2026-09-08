@@ -13,4 +13,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- License the Beskid grammar under Apache-2.0 while retaining the MIT notice
+  for generated Tree-sitter runtime headers.
 - Regenerate the grammar and native parser from the compiler's current Pest syntax, including `never`, `pointer`, and `word` primitive types.

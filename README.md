@@ -106,3 +106,9 @@ Tree-sitter 0.25+ keyword extraction uses `word: $ => $.identifier` plus string 
 | `generated/pest-manifest.json` | Parsed pest index |
 | `queries/*.scm` | Highlighting / tags |
 | `test/corpus/*.txt` | Parser tests |
+
+## License
+
+Beskid-owned grammar source is licensed under the
+[Apache License 2.0](LICENSE). Generated parser runtime headers retain the
+Tree-sitter attribution and MIT terms recorded in [NOTICE](NOTICE).
