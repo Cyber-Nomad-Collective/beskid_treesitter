@@ -13,6 +13,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- Move parser validation and reviewed GitHub Packages publication to the root
+  beskid Woodpecker pipeline, using the root-pinned grammar revision and
+  prebuilt checksum-bound package bytes.
+
 - License the Beskid grammar under Apache-2.0 while retaining the MIT notice
   for generated Tree-sitter runtime headers.
 - Regenerate the grammar and native parser from the compiler's current Pest syntax, including `never`, `pointer`, and `word` primitive types.
