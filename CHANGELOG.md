@@ -15,7 +15,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Move parser validation and reviewed GitHub Packages publication to the root
   beskid Woodpecker pipeline, using the root-pinned grammar revision and
-  prebuilt checksum-bound package bytes.
+  prebuilt checksum-bound package bytes. Lock `node-gyp` 12.1.0 for the native
+  parser build instead of resolving a mutable global tool.
 
 - License the Beskid grammar under Apache-2.0 while retaining the MIT notice
   for generated Tree-sitter runtime headers.
