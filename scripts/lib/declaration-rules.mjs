@@ -70,7 +70,8 @@ export const DECLARATION_RULES = `
 
     path_list: $ => sep1($._type_path, ','),
 
-    array_type: $ => seq($._type_name, '[', ']'),
+    // One rank per [], innermost first, as the compiler parses it: i64[][] is an array of i64[].
+    array_type: $ => seq(choice($._type_name, $.array_type), '[', ']'),
 
     type_reference: $ => seq('ref', $._type_name),
 

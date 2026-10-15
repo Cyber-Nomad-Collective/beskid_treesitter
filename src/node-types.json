@@ -238,6 +238,10 @@
       "required": true,
       "types": [
         {
+          "type": "array_type",
+          "named": true
+        },
+        {
           "type": "primitive_type",
           "named": true
         },
@@ -3487,6 +3491,10 @@
     "named": false
   },
   {
+    "type": "f32",
+    "named": false
+  },
+  {
     "type": "f64",
     "named": false
   },
@@ -3511,11 +3519,19 @@
     "named": false
   },
   {
+    "type": "i16",
+    "named": false
+  },
+  {
     "type": "i32",
     "named": false
   },
   {
     "type": "i64",
+    "named": false
+  },
+  {
+    "type": "i8",
     "named": false
   },
   {
@@ -3689,6 +3705,18 @@
   },
   {
     "type": "type",
+    "named": false
+  },
+  {
+    "type": "u16",
+    "named": false
+  },
+  {
+    "type": "u32",
+    "named": false
+  },
+  {
+    "type": "u64",
     "named": false
   },
   {

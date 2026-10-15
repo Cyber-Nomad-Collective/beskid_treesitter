@@ -139,7 +139,7 @@ export default grammar({
       optional($.generic_arguments),
     ),
 
-    primitive_type: _ => choice('bool', 'i32', 'i64', 'u8', 'pointer', 'word', 'f64', 'char', 'string', 'unit', 'never'),
+    primitive_type: _ => choice('i8', 'i16', 'u16', 'u64', 'f32', 'bool', 'i32', 'i64', 'u32', 'u8', 'pointer', 'word', 'f64', 'char', 'string', 'unit', 'never'),
 
     _expression: $ => choice(
       $.lambda_expression,
@@ -292,7 +292,8 @@ export default grammar({
 
     path_list: $ => sep1($._type_path, ','),
 
-    array_type: $ => seq($._type_name, '[', ']'),
+    // One rank per [], innermost first, as the compiler parses it: i64[][] is an array of i64[].
+    array_type: $ => seq(choice($._type_name, $.array_type), '[', ']'),
 
     type_reference: $ => seq('ref', $._type_name),
 

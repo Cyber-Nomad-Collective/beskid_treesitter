@@ -340,6 +340,26 @@
       "members": [
         {
           "type": "STRING",
+          "value": "i8"
+        },
+        {
+          "type": "STRING",
+          "value": "i16"
+        },
+        {
+          "type": "STRING",
+          "value": "u16"
+        },
+        {
+          "type": "STRING",
+          "value": "u64"
+        },
+        {
+          "type": "STRING",
+          "value": "f32"
+        },
+        {
+          "type": "STRING",
           "value": "bool"
         },
         {
@@ -349,6 +369,10 @@
         {
           "type": "STRING",
           "value": "i64"
+        },
+        {
+          "type": "STRING",
+          "value": "u32"
         },
         {
           "type": "STRING",
@@ -1568,8 +1592,17 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "SYMBOL",
-          "name": "_type_name"
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "_type_name"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "array_type"
+            }
+          ]
         },
         {
           "type": "STRING",
