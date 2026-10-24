@@ -535,6 +535,18 @@
                     {
                       "type": "STRING",
                       "value": "-="
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "*="
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "/="
+                    },
+                    {
+                      "type": "STRING",
+                      "value": "%="
                     }
                   ]
                 }
@@ -4763,21 +4775,46 @@
       ]
     },
     "string_escape": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "\\\""
-        },
-        {
-          "type": "STRING",
-          "value": "\\\\"
-        },
-        {
-          "type": "STRING",
-          "value": "\\${"
-        }
-      ]
+      "type": "TOKEN",
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "STRING",
+            "value": "\\"
+          },
+          {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SEQ",
+                "members": [
+                  {
+                    "type": "STRING",
+                    "value": "u{"
+                  },
+                  {
+                    "type": "PATTERN",
+                    "value": "[^}\"]*"
+                  },
+                  {
+                    "type": "STRING",
+                    "value": "}"
+                  }
+                ]
+              },
+              {
+                "type": "STRING",
+                "value": "${"
+              },
+              {
+                "type": "PATTERN",
+                "value": "[\\s\\S]"
+              }
+            ]
+          }
+        ]
+      }
     },
     "string_content": {
       "type": "TOKEN",
@@ -4815,12 +4852,43 @@
             "type": "CHOICE",
             "members": [
               {
-                "type": "STRING",
-                "value": "\\'"
+                "type": "SEQ",
+                "members": [
+                  {
+                    "type": "STRING",
+                    "value": "\\"
+                  },
+                  {
+                    "type": "CHOICE",
+                    "members": [
+                      {
+                        "type": "SEQ",
+                        "members": [
+                          {
+                            "type": "STRING",
+                            "value": "u{"
+                          },
+                          {
+                            "type": "PATTERN",
+                            "value": "[^}']*"
+                          },
+                          {
+                            "type": "STRING",
+                            "value": "}"
+                          }
+                        ]
+                      },
+                      {
+                        "type": "PATTERN",
+                        "value": "[\\s\\S]"
+                      }
+                    ]
+                  }
+                ]
               },
               {
                 "type": "PATTERN",
-                "value": "[^']"
+                "value": "[^'\\\\]"
               }
             ]
           },

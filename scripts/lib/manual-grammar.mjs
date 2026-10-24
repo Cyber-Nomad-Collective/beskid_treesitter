@@ -116,7 +116,7 @@ const PREC = {
       $.logical_or_expression,
       prec.right(PREC.assignment, seq(
         field('left', $.logical_or_expression),
-        field('operator', choice('=', '+=', '-=')),
+        field('operator', choice('=', '+=', '-=', '*=', '/=', '%=')),
         field('right', $.assignment_expression),
       )),
     ),

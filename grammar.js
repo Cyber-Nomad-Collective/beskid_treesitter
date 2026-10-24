@@ -164,7 +164,7 @@ export default grammar({
       $.logical_or_expression,
       prec.right(PREC.assignment, seq(
         field('left', $.logical_or_expression),
-        field('operator', choice('=', '+=', '-=')),
+        field('operator', choice('=', '+=', '-=', '*=', '/=', '%=')),
         field('right', $.assignment_expression),
       )),
     ),
@@ -796,7 +796,8 @@ export default grammar({
 
     string_interpolation: $ => seq('${', field('expression', $._expression), '}'),
 
-    string_escape: _ => choice('\\"', '\\\\', '\\${'),
+    // Mirrors the pest rule: a backslash before any character; lowering reports unknown escapes.
+    string_escape: _ => token(seq('\\', choice(seq('u{', /[^}"]*/, '}'), '${', /[\s\S]/))),
 
     string_content: _ => token(prec(-1, repeat1(choice(
       /[^"\\$]+/,
@@ -805,7 +806,7 @@ export default grammar({
 
     char_literal: _ => token(seq(
       "'",
-      choice("\\'", /[^']/),
+      choice(seq('\\', choice(seq('u{', /[^}']*/, '}'), /[\s\S]/)), /[^'\\]/),
       "'",
     )),
 
