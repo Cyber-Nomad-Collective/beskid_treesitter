@@ -3,13 +3,13 @@ Example: Types
 ==================
 
 type User {
-    i32 id,
-    string name,
+    i32 id;
+    string name;
 }
 
 type Point {
-    i32 x,
-    i32 y,
+    i32 x;
+    i32 y;
 }
 
 enum Option<T> {
@@ -33,29 +33,27 @@ unit Main(){
   (item_with_docs
     (type_definition
       (identifier)
-      (field_body
-        (field_list
-          (field_with_docs
-            (value_field
-              (primitive_type)
-              (identifier)))
-          (field_with_docs
-            (value_field
-              (primitive_type)
-              (identifier)))))))
+      (type_body
+        (field_with_docs
+          (value_field
+            (primitive_type)
+            (identifier)))
+        (field_with_docs
+          (value_field
+            (primitive_type)
+            (identifier))))))
   (item_with_docs
     (type_definition
       (identifier)
-      (field_body
-        (field_list
-          (field_with_docs
-            (value_field
-              (primitive_type)
-              (identifier)))
-          (field_with_docs
-            (value_field
-              (primitive_type)
-              (identifier)))))))
+      (type_body
+        (field_with_docs
+          (value_field
+            (primitive_type)
+            (identifier)))
+        (field_with_docs
+          (value_field
+            (primitive_type)
+            (identifier))))))
   (item_with_docs
     (enum_definition
       (identifier)
@@ -90,44 +88,47 @@ unit Main(){
       (block
         (return_statement
           (assignment_expression
-            (logical_or_expression
-              (logical_and_expression
-                (equality_expression
-                  (comparison_expression
-                    (additive_expression
-                      (multiplication_expression
-                        (unary_expression
-                          (postfix_expression
-                            (primary_expression
-                              (struct_literal_expression
-                                (identifier)
-                                (field_value_list
-                                  (field_value
-                                    (identifier)
-                                    (assignment_expression
-                                      (logical_or_expression
-                                        (logical_and_expression
-                                          (equality_expression
-                                            (comparison_expression
-                                              (additive_expression
-                                                (multiplication_expression
-                                                  (unary_expression
-                                                    (postfix_expression
-                                                      (primary_expression
-                                                        (identifier))))))))))))
-                                  (field_value
-                                    (identifier)
-                                    (assignment_expression
-                                      (logical_or_expression
-                                        (logical_and_expression
-                                          (equality_expression
-                                            (comparison_expression
-                                              (additive_expression
-                                                (multiplication_expression
-                                                  (unary_expression
-                                                    (postfix_expression
-                                                      (primary_expression
-                                                        (identifier))))))))))))))))))))))))))))
+            (conditional_expression
+              (logical_or_expression
+                (logical_and_expression
+                  (equality_expression
+                    (comparison_expression
+                      (additive_expression
+                        (multiplication_expression
+                          (unary_expression
+                            (postfix_expression
+                              (primary_expression
+                                (struct_literal_expression
+                                  (identifier)
+                                  (field_value_list
+                                    (field_value
+                                      (identifier)
+                                      (assignment_expression
+                                        (conditional_expression
+                                          (logical_or_expression
+                                            (logical_and_expression
+                                              (equality_expression
+                                                (comparison_expression
+                                                  (additive_expression
+                                                    (multiplication_expression
+                                                      (unary_expression
+                                                        (postfix_expression
+                                                          (primary_expression
+                                                            (identifier)))))))))))))
+                                    (field_value
+                                      (identifier)
+                                      (assignment_expression
+                                        (conditional_expression
+                                          (logical_or_expression
+                                            (logical_and_expression
+                                              (equality_expression
+                                                (comparison_expression
+                                                  (additive_expression
+                                                    (multiplication_expression
+                                                      (unary_expression
+                                                        (postfix_expression
+                                                          (primary_expression
+                                                            (identifier))))))))))))))))))))))))))))))
   (item_with_docs
     (function_definition
       (primitive_type)
@@ -139,6 +140,49 @@ unit Main(){
               (identifier))
             (identifier)
             (assignment_expression
+              (conditional_expression
+                (logical_or_expression
+                  (logical_and_expression
+                    (equality_expression
+                      (comparison_expression
+                        (additive_expression
+                          (multiplication_expression
+                            (unary_expression
+                              (postfix_expression
+                                (primary_expression
+                                  (identifier))
+                                (call_suffix
+                                  (argument_list
+                                    (assignment_expression
+                                      (conditional_expression
+                                        (logical_or_expression
+                                          (logical_and_expression
+                                            (equality_expression
+                                              (comparison_expression
+                                                (additive_expression
+                                                  (multiplication_expression
+                                                    (unary_expression
+                                                      (postfix_expression
+                                                        (primary_expression
+                                                          (literal
+                                                            (integer_literal)))))))))))))
+                                    (assignment_expression
+                                      (conditional_expression
+                                        (logical_or_expression
+                                          (logical_and_expression
+                                            (equality_expression
+                                              (comparison_expression
+                                                (additive_expression
+                                                  (multiplication_expression
+                                                    (unary_expression
+                                                      (postfix_expression
+                                                        (primary_expression
+                                                          (literal
+                                                            (string_literal
+                                                              (string_content))))))))))))))))))))))))))))
+        (expression_statement
+          (assignment_expression
+            (conditional_expression
               (logical_or_expression
                 (logical_and_expression
                   (equality_expression
@@ -149,102 +193,66 @@ unit Main(){
                             (postfix_expression
                               (primary_expression
                                 (identifier))
+                              (member_access
+                                (identifier))
+                              (member_access
+                                (identifier))
                               (call_suffix
                                 (argument_list
                                   (assignment_expression
-                                    (logical_or_expression
-                                      (logical_and_expression
-                                        (equality_expression
-                                          (comparison_expression
-                                            (additive_expression
-                                              (multiplication_expression
-                                                (unary_expression
-                                                  (postfix_expression
-                                                    (primary_expression
-                                                      (literal
-                                                        (integer_literal))))))))))))
+                                    (conditional_expression
+                                      (logical_or_expression
+                                        (logical_and_expression
+                                          (equality_expression
+                                            (comparison_expression
+                                              (additive_expression
+                                                (multiplication_expression
+                                                  (unary_expression
+                                                    (postfix_expression
+                                                      (primary_expression
+                                                        (literal
+                                                          (string_literal
+                                                            (string_content)))))))))))))))))))))))))))
+        (expression_statement
+          (assignment_expression
+            (conditional_expression
+              (logical_or_expression
+                (logical_and_expression
+                  (equality_expression
+                    (comparison_expression
+                      (additive_expression
+                        (multiplication_expression
+                          (unary_expression
+                            (postfix_expression
+                              (primary_expression
+                                (identifier))
+                              (member_access
+                                (identifier))
+                              (member_access
+                                (identifier))
+                              (call_suffix
+                                (argument_list
                                   (assignment_expression
-                                    (logical_or_expression
-                                      (logical_and_expression
-                                        (equality_expression
-                                          (comparison_expression
-                                            (additive_expression
-                                              (multiplication_expression
-                                                (unary_expression
-                                                  (postfix_expression
-                                                    (primary_expression
-                                                      (literal
-                                                        (string_literal
-                                                          (string_content))))))))))))))))))))))))))
-        (expression_statement
-          (assignment_expression
-            (logical_or_expression
-              (logical_and_expression
-                (equality_expression
-                  (comparison_expression
-                    (additive_expression
-                      (multiplication_expression
-                        (unary_expression
-                          (postfix_expression
-                            (primary_expression
-                              (identifier))
-                            (member_access
-                              (identifier))
-                            (member_access
-                              (identifier))
-                            (call_suffix
-                              (argument_list
-                                (assignment_expression
-                                  (logical_or_expression
-                                    (logical_and_expression
-                                      (equality_expression
-                                        (comparison_expression
-                                          (additive_expression
-                                            (multiplication_expression
-                                              (unary_expression
-                                                (postfix_expression
-                                                  (primary_expression
-                                                    (literal
-                                                      (string_literal
-                                                        (string_content)))))))))))))))))))))))))
-        (expression_statement
-          (assignment_expression
-            (logical_or_expression
-              (logical_and_expression
-                (equality_expression
-                  (comparison_expression
-                    (additive_expression
-                      (multiplication_expression
-                        (unary_expression
-                          (postfix_expression
-                            (primary_expression
-                              (identifier))
-                            (member_access
-                              (identifier))
-                            (member_access
-                              (identifier))
-                            (call_suffix
-                              (argument_list
-                                (assignment_expression
-                                  (logical_or_expression
-                                    (logical_and_expression
-                                      (equality_expression
-                                        (comparison_expression
-                                          (additive_expression
-                                            (multiplication_expression
-                                              (unary_expression
-                                                (postfix_expression
-                                                  (primary_expression
-                                                    (identifier))
-                                                  (member_access
-                                                    (identifier)))))))))))))))))))))))))))
+                                    (conditional_expression
+                                      (logical_or_expression
+                                        (logical_and_expression
+                                          (equality_expression
+                                            (comparison_expression
+                                              (additive_expression
+                                                (multiplication_expression
+                                                  (unary_expression
+                                                    (postfix_expression
+                                                      (primary_expression
+                                                        (identifier))
+                                                      (member_access
+                                                        (identifier)))))))))))))))))))))))))))))
 
 ==================
 Nested array types
 ==================
 
 type Grid {
-    i64[][] cells,
+    i64[][] cells;
 }
 
 i64[] Row(i64[][][] cube) {
@@ -257,14 +265,13 @@ i64[] Row(i64[][][] cube) {
   (item_with_docs
     (type_definition
       (identifier)
-      (field_body
-        (field_list
-          (field_with_docs
-            (value_field
+      (type_body
+        (field_with_docs
+          (value_field
+            (array_type
               (array_type
-                (array_type
-                  (primitive_type)))
-              (identifier)))))))
+                (primitive_type)))
+            (identifier))))))
   (item_with_docs
     (function_definition
       (array_type
@@ -280,13 +287,14 @@ i64[] Row(i64[][][] cube) {
       (block
         (return_statement
           (assignment_expression
-            (logical_or_expression
-              (logical_and_expression
-                (equality_expression
-                  (comparison_expression
-                    (additive_expression
-                      (multiplication_expression
-                        (unary_expression
-                          (postfix_expression
-                            (primary_expression
-                              (identifier))))))))))))))))
+            (conditional_expression
+              (logical_or_expression
+                (logical_and_expression
+                  (equality_expression
+                    (comparison_expression
+                      (additive_expression
+                        (multiplication_expression
+                          (unary_expression
+                            (postfix_expression
+                              (primary_expression
+                                (identifier)))))))))))))))))

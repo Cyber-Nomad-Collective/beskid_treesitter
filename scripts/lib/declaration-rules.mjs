@@ -97,12 +97,13 @@ export const DECLARATION_RULES = `
       field('name', $.identifier),
       optional($.generic_parameters),
       optional($.type_conformance_list),
-      field('body', $.field_body),
+      field('body', $.type_body),
     ),
 
     type_conformance_list: $ => seq(':', $.path_list),
 
-    field_body: $ => seq('{', optional($.field_list), '}'),
+    // Every field of a type ends with a semicolon.
+    type_body: $ => seq('{', repeat(seq($.field_with_docs, ';')), '}'),
 
     field_list: $ => sep1($.field_with_docs, ',', true),
 

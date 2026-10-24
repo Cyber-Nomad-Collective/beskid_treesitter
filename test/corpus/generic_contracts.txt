@@ -61,7 +61,7 @@ Iterator::Item current_item(Iterator::Item value) {
   (item_with_docs
     (type_definition
       (identifier)
-      (field_body)))
+      (type_body)))
   (item_with_docs
     (impl_block
       (receiver_type
@@ -83,17 +83,18 @@ Iterator::Item current_item(Iterator::Item value) {
             (block
               (return_statement
                 (assignment_expression
-                  (logical_or_expression
-                    (logical_and_expression
-                      (equality_expression
-                        (comparison_expression
-                          (additive_expression
-                            (multiplication_expression
-                              (unary_expression
-                                (postfix_expression
-                                  (primary_expression
-                                    (literal
-                                      (integer_literal)))))))))))))))))))
+                  (conditional_expression
+                    (logical_or_expression
+                      (logical_and_expression
+                        (equality_expression
+                          (comparison_expression
+                            (additive_expression
+                              (multiplication_expression
+                                (unary_expression
+                                  (postfix_expression
+                                    (primary_expression
+                                      (literal
+                                        (integer_literal))))))))))))))))))))
   (item_with_docs
     (function_definition
       (this_type)
@@ -105,16 +106,17 @@ Iterator::Item current_item(Iterator::Item value) {
       (block
         (return_statement
           (assignment_expression
-            (logical_or_expression
-              (logical_and_expression
-                (equality_expression
-                  (comparison_expression
-                    (additive_expression
-                      (multiplication_expression
-                        (unary_expression
-                          (postfix_expression
-                            (primary_expression
-                              (identifier)))))))))))))))
+            (conditional_expression
+              (logical_or_expression
+                (logical_and_expression
+                  (equality_expression
+                    (comparison_expression
+                      (additive_expression
+                        (multiplication_expression
+                          (unary_expression
+                            (postfix_expression
+                              (primary_expression
+                                (identifier))))))))))))))))
   (item_with_docs
     (function_definition
       (associated_type_reference
@@ -130,13 +132,14 @@ Iterator::Item current_item(Iterator::Item value) {
       (block
         (return_statement
           (assignment_expression
-            (logical_or_expression
-              (logical_and_expression
-                (equality_expression
-                  (comparison_expression
-                    (additive_expression
-                      (multiplication_expression
-                        (unary_expression
-                          (postfix_expression
-                            (primary_expression
-                              (identifier))))))))))))))))
+            (conditional_expression
+              (logical_or_expression
+                (logical_and_expression
+                  (equality_expression
+                    (comparison_expression
+                      (additive_expression
+                        (multiplication_expression
+                          (unary_expression
+                            (postfix_expression
+                              (primary_expression
+                                (identifier)))))))))))))))))

@@ -10,15 +10,16 @@
 /** @type {import('tree-sitter-cli/dsl').Precedence[]} */
 const PREC = {
   assignment: 1,
-  logical_or: 2,
-  logical_and: 3,
-  equality: 4,
-  comparison: 5,
-  additive: 6,
-  multiplicative: 7,
-  unary: 8,
-  postfix: 9,
-  primary: 10,
+  conditional: 2,
+  logical_or: 3,
+  logical_and: 4,
+  equality: 5,
+  comparison: 6,
+  additive: 7,
+  multiplicative: 8,
+  unary: 9,
+  postfix: 10,
+  primary: 11,
 };
 
 export default grammar({
@@ -61,6 +62,7 @@ export default grammar({
     [$._type_path_segment, $.lambda_parameter],
     [$._type_path_segment, $.lambda_parameter, $.primary_expression],
     [$.macro_invocation],
+    [$.postfix_expression],
     [$.lambda_parameter, $.primary_expression],
     [$.lambda_body, $.primary_expression],
     [$._lambda_parameters, $.primary_expression],
@@ -161,12 +163,24 @@ export default grammar({
     lambda_body: $ => choice($.block, $._expression),
 
     assignment_expression: $ => choice(
-      $.logical_or_expression,
+      $.conditional_expression,
       prec.right(PREC.assignment, seq(
         field('left', $.logical_or_expression),
         field('operator', choice('=', '+=', '-=', '*=', '/=', '%=')),
         field('right', $.assignment_expression),
       )),
+    ),
+
+    // cond ? a : b, right-associative. A ? is error propagation unless an expression and : follow.
+    conditional_expression: $ => choice(
+      $.logical_or_expression,
+      prec.dynamic(1, prec.right(PREC.conditional, seq(
+        field('condition', $.logical_or_expression),
+        '?',
+        field('consequence', $._expression),
+        ':',
+        field('alternative', $.conditional_expression),
+      ))),
     ),
 
     logical_or_expression: $ => prec.left(PREC.logical_or, sep1($.logical_and_expression, '||')),
@@ -186,10 +200,10 @@ export default grammar({
 
     spawn_expression: $ => seq('spawn', field('task', $.postfix_expression)),
 
-    postfix_expression: $ => prec(PREC.postfix, seq(
+    postfix_expression: $ => seq(
       field('operand', $.primary_expression),
       repeat(choice($.call_suffix, $.member_access, $.try_operator)),
-    )),
+    ),
 
     call_suffix: $ => seq('(', optional($.argument_list), ')'),
     member_access: $ => seq('.', field('member', $.identifier)),
@@ -319,12 +333,13 @@ export default grammar({
       field('name', $.identifier),
       optional($.generic_parameters),
       optional($.type_conformance_list),
-      field('body', $.field_body),
+      field('body', $.type_body),
     ),
 
     type_conformance_list: $ => seq(':', $.path_list),
 
-    field_body: $ => seq('{', optional($.field_list), '}'),
+    // Every field of a type ends with a semicolon.
+    type_body: $ => seq('{', repeat(seq($.field_with_docs, ';')), '}'),
 
     field_list: $ => sep1($.field_with_docs, ',', true),
 

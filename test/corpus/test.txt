@@ -25,54 +25,7 @@ i32 main() {
             (primitive_type)
             (identifier)
             (assignment_expression
-              (logical_or_expression
-                (logical_and_expression
-                  (equality_expression
-                    (comparison_expression
-                      (additive_expression
-                        (multiplication_expression
-                          (unary_expression
-                            (postfix_expression
-                              (primary_expression
-                                (literal
-                                  (integer_literal))))))))))))))
-        (let_statement
-          (typed_let_statement
-            (primitive_type)
-            (identifier)
-            (assignment_expression
-              (logical_or_expression
-                (logical_and_expression
-                  (equality_expression
-                    (comparison_expression
-                      (additive_expression
-                        (multiplication_expression
-                          (unary_expression
-                            (postfix_expression
-                              (primary_expression
-                                (literal
-                                  (integer_literal))))))))))))))
-        (if_statement
-          (assignment_expression
-            (logical_or_expression
-              (logical_and_expression
-                (equality_expression
-                  (comparison_expression
-                    (additive_expression
-                      (multiplication_expression
-                        (unary_expression
-                          (postfix_expression
-                            (primary_expression
-                              (identifier))))))
-                    (additive_expression
-                      (multiplication_expression
-                        (unary_expression
-                          (postfix_expression
-                            (primary_expression
-                              (identifier)))))))))))
-          (block
-            (return_statement
-              (assignment_expression
+              (conditional_expression
                 (logical_or_expression
                   (logical_and_expression
                     (equality_expression
@@ -82,22 +35,74 @@ i32 main() {
                             (unary_expression
                               (postfix_expression
                                 (primary_expression
-                                  (identifier)))))
+                                  (literal
+                                    (integer_literal)))))))))))))))
+        (let_statement
+          (typed_let_statement
+            (primitive_type)
+            (identifier)
+            (assignment_expression
+              (conditional_expression
+                (logical_or_expression
+                  (logical_and_expression
+                    (equality_expression
+                      (comparison_expression
+                        (additive_expression
                           (multiplication_expression
                             (unary_expression
                               (postfix_expression
                                 (primary_expression
-                                  (identifier))))))))))))))
+                                  (literal
+                                    (integer_literal)))))))))))))))
+        (if_statement
+          (assignment_expression
+            (conditional_expression
+              (logical_or_expression
+                (logical_and_expression
+                  (equality_expression
+                    (comparison_expression
+                      (additive_expression
+                        (multiplication_expression
+                          (unary_expression
+                            (postfix_expression
+                              (primary_expression
+                                (identifier))))))
+                      (additive_expression
+                        (multiplication_expression
+                          (unary_expression
+                            (postfix_expression
+                              (primary_expression
+                                (identifier))))))))))))
+          (block
+            (return_statement
+              (assignment_expression
+                (conditional_expression
+                  (logical_or_expression
+                    (logical_and_expression
+                      (equality_expression
+                        (comparison_expression
+                          (additive_expression
+                            (multiplication_expression
+                              (unary_expression
+                                (postfix_expression
+                                  (primary_expression
+                                    (identifier)))))
+                            (multiplication_expression
+                              (unary_expression
+                                (postfix_expression
+                                  (primary_expression
+                                    (identifier)))))))))))))))
         (return_statement
           (assignment_expression
-            (logical_or_expression
-              (logical_and_expression
-                (equality_expression
-                  (comparison_expression
-                    (additive_expression
-                      (multiplication_expression
-                        (unary_expression
-                          (postfix_expression
-                            (primary_expression
-                              (literal
-                                (integer_literal)))))))))))))))))
+            (conditional_expression
+              (logical_or_expression
+                (logical_and_expression
+                  (equality_expression
+                    (comparison_expression
+                      (additive_expression
+                        (multiplication_expression
+                          (unary_expression
+                            (postfix_expression
+                              (primary_expression
+                                (literal
+                                  (integer_literal))))))))))))))))))

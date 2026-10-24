@@ -51,24 +51,7 @@ string describe(Option<string> opt) {
         (return_statement
           (match_expression
             (assignment_expression
-              (logical_or_expression
-                (logical_and_expression
-                  (equality_expression
-                    (comparison_expression
-                      (additive_expression
-                        (multiplication_expression
-                          (unary_expression
-                            (postfix_expression
-                              (primary_expression
-                                (identifier)))))))))))
-            (match_arm
-              (enum_pattern
-                (enum_path
-                  (identifier)
-                  (identifier))
-                (pattern_list
-                  (identifier)))
-              (assignment_expression
+              (conditional_expression
                 (logical_or_expression
                   (logical_and_expression
                     (equality_expression
@@ -83,17 +66,37 @@ string describe(Option<string> opt) {
               (enum_pattern
                 (enum_path
                   (identifier)
+                  (identifier))
+                (pattern_list
                   (identifier)))
               (assignment_expression
-                (logical_or_expression
-                  (logical_and_expression
-                    (equality_expression
-                      (comparison_expression
-                        (additive_expression
-                          (multiplication_expression
-                            (unary_expression
-                              (postfix_expression
-                                (primary_expression
-                                  (literal
-                                    (string_literal
-                                      (string_content))))))))))))))))))))
+                (conditional_expression
+                  (logical_or_expression
+                    (logical_and_expression
+                      (equality_expression
+                        (comparison_expression
+                          (additive_expression
+                            (multiplication_expression
+                              (unary_expression
+                                (postfix_expression
+                                  (primary_expression
+                                    (identifier)))))))))))))
+            (match_arm
+              (enum_pattern
+                (enum_path
+                  (identifier)
+                  (identifier)))
+              (assignment_expression
+                (conditional_expression
+                  (logical_or_expression
+                    (logical_and_expression
+                      (equality_expression
+                        (comparison_expression
+                          (additive_expression
+                            (multiplication_expression
+                              (unary_expression
+                                (postfix_expression
+                                  (primary_expression
+                                    (literal
+                                      (string_literal
+                                        (string_content)))))))))))))))))))))
