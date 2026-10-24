@@ -547,3 +547,89 @@ i32 pick(bool c, i32 x, bool b) {
                                     (primary_expression
                                       (literal
                                         (integer_literal)))))))))))))))))))))
+
+==================
+Parameter default values
+==================
+
+// The tree-sitter grammar has no const item; a default that names a constant is an expression.
+unit Check(bool ok, string because = "", i32 count = -1, i32 max = Limits.Max, i32 min = Limit) {
+}
+
+---
+
+(source_file
+  (line_comment)
+  (item_with_docs
+    (function_definition
+      (primitive_type)
+      (identifier)
+      (parameter_list
+        (parameter_with_docs
+          (primitive_type)
+          (identifier))
+        (parameter_with_docs
+          (primitive_type)
+          (identifier)
+          (assignment_expression
+            (conditional_expression
+              (logical_or_expression
+                (logical_and_expression
+                  (equality_expression
+                    (comparison_expression
+                      (additive_expression
+                        (multiplication_expression
+                          (unary_expression
+                            (postfix_expression
+                              (primary_expression
+                                (literal
+                                  (string_literal))))))))))))))
+        (parameter_with_docs
+          (primitive_type)
+          (identifier)
+          (assignment_expression
+            (conditional_expression
+              (logical_or_expression
+                (logical_and_expression
+                  (equality_expression
+                    (comparison_expression
+                      (additive_expression
+                        (multiplication_expression
+                          (unary_expression
+                            (postfix_expression
+                              (primary_expression
+                                (literal
+                                  (integer_literal))))))))))))))
+        (parameter_with_docs
+          (primitive_type)
+          (identifier)
+          (assignment_expression
+            (conditional_expression
+              (logical_or_expression
+                (logical_and_expression
+                  (equality_expression
+                    (comparison_expression
+                      (additive_expression
+                        (multiplication_expression
+                          (unary_expression
+                            (postfix_expression
+                              (primary_expression
+                                (identifier))
+                              (member_access
+                                (identifier)))))))))))))
+        (parameter_with_docs
+          (primitive_type)
+          (identifier)
+          (assignment_expression
+            (conditional_expression
+              (logical_or_expression
+                (logical_and_expression
+                  (equality_expression
+                    (comparison_expression
+                      (additive_expression
+                        (multiplication_expression
+                          (unary_expression
+                            (postfix_expression
+                              (primary_expression
+                                (identifier))))))))))))))
+      (block))))

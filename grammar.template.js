@@ -428,6 +428,7 @@ export default grammar({
       field('type', $._type),
       optional('mut'),
       field('name', $.identifier),
+      optional(seq('=', field('default', $._expression))),
     ),
 
     parameter_modifier: _ => choice('ref', 'out'),
