@@ -483,7 +483,11 @@ export const DECLARATION_RULES = `
       ';',
     ),
 
-    expression_statement: $ => seq($._expression, ';'),
+    // A match used as a statement may omit its trailing semicolon.
+    expression_statement: $ => choice(
+      seq($._expression, ';'),
+      prec(-1, $.match_expression),
+    ),
 
     lambda_parameter_list: $ => sep1($.lambda_parameter, ','),
 
@@ -560,9 +564,20 @@ export const DECLARATION_RULES = `
       'false',
     ),
 
-    integer_literal: _ => token(seq(optional('-'), /\\d+/)),
+    integer_literal: _ => token(seq(
+      optional('-'),
+      choice(/0x[0-9a-fA-F]+(_[0-9a-fA-F]+)*/, /\\d+(_\\d+)*/),
+      optional(choice('_i8', '_i16', '_i32', '_i64', '_u8', '_u16', '_u32', '_u64', '_word')),
+    )),
 
-    float_literal: _ => token(seq(optional('-'), /\\d+/, '.', /\\d+/)),
+    float_literal: _ => token(seq(
+      optional('-'),
+      /\\d+/,
+      '.',
+      /\\d+/,
+      optional(/[eE][+-]?\\d+/),
+      optional(choice('_f32', '_f64')),
+    )),
 
     string_literal: $ => seq(
       '"',

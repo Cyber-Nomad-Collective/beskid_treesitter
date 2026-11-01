@@ -10,6 +10,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - Cover generic contract declarations, generic embeddings, implementation conformance lists, `This`, and associated-type syntax in the parser corpus.
+- Parse the Beskid 0.6.7 numeric literal forms: hexadecimal and `_`-grouped
+  integers, the `_i8` to `_u64` and `_word` integer suffixes, and float
+  exponents with the `_f32` and `_f64` suffixes.
+- Accept a `match` used as a statement without a trailing `;`, as the compiler
+  grammar does.
 
 ### Changed
 
